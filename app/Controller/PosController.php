@@ -2778,6 +2778,13 @@ $data['Salepointdetail']['nom_produit_ean13'] = $nom_produit_ean13; // le nom pr
                         if ($qte <= 0) {
                             $response['message'] = 'Opération impossible la quantité doit étre supérieur a zéro !';
                         } else {
+
+                            
+                        // Si le produit existe déjà dans le POS, la quantité ne doit pas être cumulée => ajouter une nouvelle ligne
+
+                            /***
+                             * 
+                             * 
                             $produit_old = $this->Salepoint->Salepointdetail->find('first', [
                                 'conditions' => [
                                     'Produit.code_barre' => $code_article,
@@ -2786,10 +2793,12 @@ $data['Salepointdetail']['nom_produit_ean13'] = $nom_produit_ean13; // le nom pr
                                 'fields' => ['Salepointdetail.id', 'Salepointdetail.qte', 'Salepointdetail.ecommercedetail_id', 'Salepointdetail.qte_cmd', 'Produit.id', 'Produit.code_barre', 'Produit.prix_vente', 'Produit.unite_id', 'Produit.tva_vente', 'Produit.pese'],
                                 'contain' => ['Produit'],
                             ]);
-
                             $qte_old = (!empty($produit_old['Salepointdetail']['qte'])) ? $produit_old['Salepointdetail']['qte'] : 0;
-
                             $qte = $qte_old + $qte;
+                            */
+
+
+
                             $tva = (isset($produit['Produit']['tva_vente']) and !empty($produit['Produit']['tva_vente'])) ? (int) $produit['Produit']['tva_vente'] : 0;
                             $division_tva = (1 + $tva / 100);
 
