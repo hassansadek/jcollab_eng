@@ -1317,14 +1317,16 @@ $caisse_id = $this->Session->check('caisse_id') ? $this->Session->read('caisse_i
                     $Ecommerces->constructClasses();
                     $Ecommerces->changeStatus($orderId, 'ready_for_delivery');
                     $this->Session->setFlash('La commande a été mise à jour avec succès / ready_for_delivery', 'alert-success');
+                    
                 } elseif ($shipment == 'self') {
                     App::uses('EcommercesController', 'Controller');
                     $Ecommerces = new EcommercesController();
                     $Ecommerces->constructClasses();
-                    // $Ecommerces->changeStatus($orderId, 'ready_for_pickup');
-                    $Ecommerces->changeStatus($orderId, 'assigned_to_delivery_person');
+                    $Ecommerces->changeStatus($orderId, 'ready_for_delivery');
+                    // $Ecommerces->changeStatus($orderId, 'assigned_to_delivery_person');
                     $this->Session->setFlash('La commande a été mise à jour avec succès / assigned_to_delivery_person', 'alert-success');
                 }
+
 
             }
 
