@@ -22,7 +22,9 @@
 
 <script>
 $(document).ready(function() {
-    const baseUrl = window.location.origin + window.location.pathname.split('/Pos')[0];
+    // const baseUrl = window.location.origin + window.location.pathname.split('/Pos')[0];
+    const baseUrl = window.location.origin + window.location.pathname.replace(/\/pos\/.*/i, '');
+
 
     $('#sync-orders-btn').on('click', function() {
         $.ajax({
