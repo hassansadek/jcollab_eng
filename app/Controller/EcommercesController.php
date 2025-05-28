@@ -20,7 +20,7 @@ class EcommercesController extends AppController
 
 
     public function syncwebsite() {
-        $apiUrl = 'https://lafonda-uat.o2usd.net/rest/api/orders/pending';
+        $apiUrl = 'https://lafonda.ae/rest/api/orders/pending';
         $username = 'restapi';
         $password = 'DSDS@$%^&@#';
 
@@ -1115,8 +1115,8 @@ $this->set('id', 9);
     }
 
     public function changeStatus($id = null, $status = null, $shipment = null)
-    {        
-
+    {      
+          
         // if $status = ready_for_delivery il faut récuprer la date et l'heure d'aujourd'hui et ajouter +5min et créer une variable planned_start_time avec ce format : 2025-05-05 22:59
         if ($shipment == 'self') {
             $now_date = date('Y-m-d');
