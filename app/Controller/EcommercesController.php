@@ -20,7 +20,7 @@ class EcommercesController extends AppController
 
 
     public function syncwebsite() {
-        $apiUrl = 'https://lafonda.ae/rest/api/orders/pending';
+        $apiUrl = 'https://lafonda-uat.o2usd.net/rest/api/orders/pending';
         $username = 'restapi';
         $password = 'DSDS@$%^&@#';
 
@@ -1120,11 +1120,11 @@ $this->set('id', 9);
 
         // if $status = ready_for_delivery il faut récuprer la date et l'heure d'aujourd'hui et ajouter +5min et créer une variable planned_start_time avec ce format : 2025-05-05 22:59
         if ($status == 'ready_for_delivery') {
-            $date = new DateTime();
-            $date->modify('+5 minutes');
-            $planned_start_time = $date->format('Y-m-d H:i:s');
+            // $date = new DateTime();
+            // $date->modify('+5 minutes');
+             // $planned_start_time = $date->format('Y-m-d H:i:s');
         } else {
-            $planned_start_time = null;
+            // $planned_start_time = null;
         }
 
         $this->autoRender = false;
@@ -1151,7 +1151,7 @@ $this->set('id', 9);
             'site' => 1,
             'id' => (int)$onlineId,
             'status' => $status,
-            'planned_start_time' => $planned_start_time,
+            //'planned_start_time' => $planned_start_time,
         ];
 
         $jsonData = json_encode($payload);
